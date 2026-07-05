@@ -1,0 +1,26 @@
+{
+  "name": "@packages/better-auth",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc -b --watch",
+    "build": "tsc -b",
+    "typecheck": "tsc --noEmit"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "@packages/db": "workspace:*",
+    "@packages/environment": "workspace:*",
+    "better-auth": "^1.6.5",
+    "@better-auth/prisma-adapter": "^1.4.4"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^26.0.0",
+    "typescript": "^6.0.3"
+  }
+}

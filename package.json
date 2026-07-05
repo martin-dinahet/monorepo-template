@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "monorepo-template",
+  "type": "module",
+  "scripts": {
+    "dev": "turbo run dev",
+    "typecheck": "turbo run typecheck",
+    "build": "turbo run build",
+    "start": "turbo run start",
+    "biome:line": "biome lint",
+    "biome:format": "biome format --write",
+    "biome:check": "biome check --write",
+    "db:up": "docker compose up -d ",
+    "db:stop": "docker compose down",
+    "db:clean": "docker compose down -v",
+    "db:generate": "pnpm --filter @packages/db exec prisma generate",
+    "db:migrate": "pnpm --filter @packages/db exec prisma migrate dev"
+  },
+  "packageManager": "pnpm@11.9.0",
+  "devDependencies": {
+    "@biomejs/biome": "2.5.2",
+    "turbo": "^2.10.3",
+    "typescript": "^6.0.3"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "@repo/typescript-config",
+  "type": "module",
+  "exports": {
+    "./base": "./configs/base.json",
+    "./react": "./configs/react.json",
+    "./node": "./configs/node.json"
+  }
+}
