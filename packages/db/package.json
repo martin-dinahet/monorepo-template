@@ -3,8 +3,8 @@
   "type": "module",
   "scripts": {
     "dev": "tsc -b --watch",
-    "build": "tsc -b",
-    "typecheck": "tsc --noEmit"
+    "build": "prisma generate && tsc -b",
+    "typecheck": "prisma generate && tsc --noEmit"
   },
   "exports": {
     ".": {
