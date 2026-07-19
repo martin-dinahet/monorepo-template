@@ -2,6 +2,7 @@
   "name": "@packages/db",
   "type": "module",
   "scripts": {
+    "clean": "rm -rf dist tsconfig.tsbuildinfo src/prisma",
     "dev": "tsc -b --watch",
     "build": "prisma generate && tsc -b",
     "typecheck": "prisma generate && tsc --noEmit"

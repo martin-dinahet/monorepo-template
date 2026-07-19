@@ -2,6 +2,7 @@
   "name": "@services/backend",
   "type": "module",
   "scripts": {
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "test": "vitest run",

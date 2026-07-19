@@ -3,6 +3,7 @@
   "name": "monorepo-template",
   "type": "module",
   "scripts": {
+    "clean": "turbo run clean && rm -rf .turbo .pnpm-store",
     "dev": "turbo run dev",
     "dev:setup": "pnpm install && pnpm db:up && pnpm db:migrate && pnpm db:generate",
     "test": "turbo run test",

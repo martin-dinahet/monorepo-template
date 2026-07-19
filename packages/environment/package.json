@@ -2,6 +2,7 @@
   "name": "@packages/environment",
   "type": "module",
   "scripts": {
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
     "dev": "tsc -b --watch",
     "build": "tsc -b",
     "test": "vitest run",

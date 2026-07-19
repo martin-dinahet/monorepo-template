@@ -2,6 +2,7 @@
   "name": "@services/frontend",
   "type": "module",
   "scripts": {
+    "clean": "rm -rf dist node_modules/.tmp",
     "dev": "vite",
     "typecheck": "tsc -b",
     "build": "vite build",

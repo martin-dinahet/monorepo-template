@@ -132,6 +132,7 @@ Run these from the repository root.
 
 | Command | Description |
 | --- | --- |
+| `pnpm clean` | Remove generated build output and local caches. |
 | `pnpm dev` | Start all workspace development tasks. |
 | `pnpm dev:setup` | Install dependencies, start Postgres, run migrations, and generate Prisma. |
 | `pnpm build` | Build packages and services through Turborepo. |
