@@ -1,84 +1,179 @@
 # monorepo-template
 
-A pnpm Turborepo monorepo with a Hono backend, React frontend, Prisma + Postgres, and better-auth.
+A pnpm + Turborepo starter for a TypeScript full-stack app.
 
-## Prerequisites
-
-- Node.js >= 22
-- pnpm 11
-- Docker (for Postgres)
-
-## Getting started
-
-```sh
-# Install dependencies
-pnpm install
-
-# Start the database
-pnpm db:up
-
-# Apply migrations
-pnpm db:migrate
-
-# Generate Prisma client
-pnpm db:generate
-
-# Start all services in dev mode
-pnpm dev
-```
-
-### Environment
-
-Copy `.env` to the project root (if not present):
-
-```
-DATABASE_URL="postgres://user:password@localhost:5432/db"
-```
-
-## Project structure
-
-```
-├── packages/
-│   ├── environment/       # Env loading & validation (dotenv + zod)
-│   ├── db/                # Prisma database layer (Postgres)
-│   ├── better-auth/       # better-auth configuration
-│   └── typescript-config/ # Shared tsconfig presets (base/node/react)
-├── services/
-│   ├── backend/           # Hono API server (port 3000)
-│   └── frontend/          # React + Vite SPA (port 5173)
-├── compose.yaml           # Postgres 18 container
-├── turbo.json             # Turborepo task configuration
-└── biome.json             # Linting & formatting
-```
-
-### Dependency graph
-
-```
-@services/backend → @packages/better-auth → @packages/db → @packages/environment
-@services/frontend (standalone)
-```
-
-## Scripts
-
-| Command | Description |
-|---|---|
-| `pnpm dev` | Start all services in dev mode (watch mode) |
-| `pnpm build` | Build all packages and services |
-| `pnpm typecheck` | Type-check all packages and services |
-| `pnpm start` | Start built services |
-| `pnpm biome:check` | Lint and format with Biome |
-| `pnpm db:up` | Start Postgres via Docker Compose |
-| `pnpm db:stop` | Stop Postgres container |
-| `pnpm db:clean` | Stop and remove Postgres container + volumes |
-| `pnpm db:generate` | Generate Prisma client |
-| `pnpm db:migrate` | Apply pending Prisma migrations |
+It includes a Hono API, a React/Vite frontend, Prisma with Postgres, shared TypeScript
+configuration, environment validation, and Better Auth wired to the database.
 
 ## Stack
 
-- **Runtime:** Node.js + TypeScript 6
-- **Backend:** Hono + @hono/node-server
-- **Frontend:** React 19 + Vite 8
-- **Database:** Postgres 18 + Prisma 7
-- **Auth:** better-auth
-- **Monorepo:** pnpm workspaces + Turborepo
-- **Linting:** Biome
+- Node.js 22+
+- pnpm 11
+- Turborepo
+- TypeScript 6
+- Hono
+- React 19 + Vite
+- Prisma 7 + Postgres
+- Better Auth
+- Biome
+
+## Repository Layout
+
+```text
+.
+├── packages/
+│   ├── better-auth/        # Better Auth server configuration
+│   ├── db/                 # Prisma schema, migrations, generated client wrapper
+│   ├── environment/        # dotenv loading and Zod environment validation
+│   └── typescript-config/  # Shared TypeScript presets
+├── services/
+│   ├── backend/            # Hono API server
+│   └── frontend/           # React + Vite app
+├── compose.yaml            # Local Postgres container
+├── pnpm-workspace.yaml     # Workspace packages and pnpm settings
+├── turbo.json              # Task pipeline
+└── biome.json              # Formatting and linting
+```
+
+## Package Graph
+
+```text
+@services/backend
+  -> @packages/better-auth
+    -> @packages/db
+      -> @packages/environment
+
+@services/frontend
+  -> standalone React/Vite app
+```
+
+## Prerequisites
+
+- Node.js 22 or newer
+- pnpm 11
+- Docker, for the local Postgres database
+
+## Getting Started
+
+Install dependencies:
+
+```sh
+pnpm install
+```
+
+Create a local environment file:
+
+```sh
+cp .env.example .env
+```
+
+Update `BETTER_AUTH_SECRET` in `.env` before doing anything beyond local development. A good
+secret can be generated with:
+
+```sh
+openssl rand -base64 32
+```
+
+Start Postgres:
+
+```sh
+pnpm db:up
+```
+
+Apply migrations and generate the Prisma client:
+
+```sh
+pnpm db:migrate
+pnpm db:generate
+```
+
+Start the workspace in development mode:
+
+```sh
+pnpm dev
+```
+
+By default:
+
+- Backend API: `http://localhost:3000`
+- API health check: `http://localhost:3000/api/health`
+- Auth routes: `http://localhost:3000/api/auth/*`
+- Frontend: `http://localhost:5173`
+
+## Environment Variables
+
+The root `.env` file is intentionally ignored by git. Use `.env.example` as the template.
+
+```env
+DATABASE_URL="postgres://user:password@localhost:5432/db"
+BETTER_AUTH_SECRET="replace-with-at-least-32-characters"
+BETTER_AUTH_URL="http://localhost:3000"
+BETTER_AUTH_TRUSTED_ORIGINS="http://localhost:5173"
+```
+
+| Variable | Description |
+| --- | --- |
+| `DATABASE_URL` | Postgres connection string used by Prisma. |
+| `BETTER_AUTH_SECRET` | Secret used by Better Auth for signing/encryption. Use a strong value. |
+| `BETTER_AUTH_URL` | Public base URL for the auth server. |
+| `BETTER_AUTH_TRUSTED_ORIGINS` | Comma-separated list of frontend origins allowed by Better Auth. |
+
+## Scripts
+
+Run these from the repository root.
+
+| Command | Description |
+| --- | --- |
+| `pnpm dev` | Start all workspace development tasks. |
+| `pnpm build` | Build packages and services through Turborepo. |
+| `pnpm typecheck` | Type-check the workspace. |
+| `pnpm start` | Start built services. |
+| `pnpm biome:line` | Run Biome linting. |
+| `pnpm biome:format` | Format files with Biome. |
+| `pnpm biome:check` | Run Biome checks and write safe fixes. |
+| `pnpm db:up` | Start local Postgres with Docker Compose. |
+| `pnpm db:stop` | Stop the local Postgres container. |
+| `pnpm db:clean` | Stop Postgres and remove its volumes. |
+| `pnpm db:generate` | Generate the Prisma client for `@packages/db`. |
+| `pnpm db:migrate` | Run Prisma migrations in development mode. |
+
+## Database
+
+The Prisma schema lives at `packages/db/prisma/schema.prisma`.
+
+Generated Prisma client files are emitted into `packages/db/src/prisma/` and are ignored by git.
+Run `pnpm db:generate` after changing the schema or after a fresh install if the generated client is
+missing.
+
+Migrations live in `packages/db/prisma/migrations/`.
+
+## Auth
+
+Better Auth is configured in `packages/better-auth/src/index.ts`.
+
+The backend mounts auth handlers under:
+
+```text
+/api/auth/*
+```
+
+The auth package reads its required settings from `@packages/environment`, so missing or invalid
+environment variables fail early during startup.
+
+## Quality Checks
+
+Before opening a PR or sharing changes, run:
+
+```sh
+pnpm typecheck
+pnpm build
+pnpm biome:line
+pnpm audit --audit-level moderate
+```
+
+## Notes For Template Users
+
+- Keep `.env` out of git. Commit `.env.example` instead.
+- Keep generated files out of git, including `dist/`, `*.tsbuildinfo`, and Prisma generated output.
+- If you change database relations, add a Prisma migration as well as updating `schema.prisma`.
+- The pnpm override in `pnpm-workspace.yaml` pins a patched transitive `@hono/node-server` version.
