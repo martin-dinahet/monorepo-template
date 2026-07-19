@@ -5,3 +5,5 @@ allowBuilds:
   '@prisma/engines': true
   esbuild: true
   prisma: true
+overrides:
+  '@prisma/dev>@hono/node-server': 1.19.13
