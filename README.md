@@ -41,10 +41,10 @@ configuration, environment validation, and Better Auth wired to the database.
 @services/backend
   -> @packages/auth
     -> @packages/db
-      -> @packages/environment
+      -> @packages/environment/server
 
 @services/frontend
-  -> standalone React/Vite app
+  -> @packages/environment/client, when client env validation is needed
 ```
 
 ## Prerequisites
@@ -169,8 +169,9 @@ The backend mounts auth handlers under:
 /api/auth/*
 ```
 
-The auth package reads its required settings from `@packages/environment`, so missing or invalid
-environment variables fail early during startup.
+Server packages read their required settings from `@packages/environment/server`, so missing or
+invalid environment variables fail early during startup. Browser-facing code should use
+`@packages/environment/client`, which only exposes the client-safe schema.
 
 ## API Docs
 

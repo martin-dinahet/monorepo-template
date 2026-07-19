@@ -1,5 +1,5 @@
 import { db } from "@packages/db";
-import { env } from "@packages/environment";
+import { env } from "@packages/environment/server";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 

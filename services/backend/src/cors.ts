@@ -1,4 +1,4 @@
-import { env } from "@packages/environment";
+import { env } from "@packages/environment/server";
 
 const trustedOrigins =
   env.BETTER_AUTH_TRUSTED_ORIGINS?.split(",")
