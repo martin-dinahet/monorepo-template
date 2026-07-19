@@ -151,7 +151,7 @@ Run these from the repository root.
 
 The Prisma schema lives at `packages/db/prisma/schema.prisma`.
 
-Generated Prisma client files are emitted into `packages/db/src/prisma/` and are ignored by git.
+Generated Prisma client files are emitted into `packages/db/src/generated/prisma/` and are ignored by git.
 Run `pnpm db:generate` after changing the schema or after a fresh install if the generated client is
 missing.
 

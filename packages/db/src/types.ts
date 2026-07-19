@@ -3,7 +3,7 @@ export type {
   Session,
   User,
   Verification,
-} from "./prisma/client.js";
+} from "./generated/prisma/client.js";
 
 export type {
   AccountCreateInput,
@@ -12,7 +12,7 @@ export type {
   AccountUpdateInput,
   AccountWhereInput,
   AccountWhereUniqueInput,
-} from "./prisma/models/Account.js";
+} from "./generated/prisma/models/Account.js";
 
 export type {
   SessionCreateInput,
@@ -21,7 +21,7 @@ export type {
   SessionUpdateInput,
   SessionWhereInput,
   SessionWhereUniqueInput,
-} from "./prisma/models/Session.js";
+} from "./generated/prisma/models/Session.js";
 
 export type {
   UserCreateInput,
@@ -30,7 +30,7 @@ export type {
   UserUpdateInput,
   UserWhereInput,
   UserWhereUniqueInput,
-} from "./prisma/models/User.js";
+} from "./generated/prisma/models/User.js";
 
 export type {
   VerificationCreateInput,
@@ -38,4 +38,4 @@ export type {
   VerificationUpdateInput,
   VerificationWhereInput,
   VerificationWhereUniqueInput,
-} from "./prisma/models/Verification.js";
+} from "./generated/prisma/models/Verification.js";
