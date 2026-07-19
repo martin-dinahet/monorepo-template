@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "turbo run dev",
+    "dev:setup": "pnpm install && pnpm db:up && pnpm db:migrate && pnpm db:generate",
     "test": "turbo run test",
     "typecheck": "turbo run typecheck",
     "build": "turbo run build",

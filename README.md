@@ -93,6 +93,12 @@ Start the workspace in development mode:
 pnpm dev
 ```
 
+After creating `.env`, you can also run the local setup path as one command:
+
+```sh
+pnpm dev:setup
+```
+
 By default:
 
 - Backend API: `http://localhost:3000`
@@ -127,6 +133,7 @@ Run these from the repository root.
 | Command | Description |
 | --- | --- |
 | `pnpm dev` | Start all workspace development tasks. |
+| `pnpm dev:setup` | Install dependencies, start Postgres, run migrations, and generate Prisma. |
 | `pnpm build` | Build packages and services through Turborepo. |
 | `pnpm typecheck` | Type-check the workspace. |
 | `pnpm start` | Start built services. |
