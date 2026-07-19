@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "tsc -b --watch",
     "build": "tsc -b",
+    "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
   "exports": {

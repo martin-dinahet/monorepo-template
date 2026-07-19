@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "turbo run dev",
+    "test": "turbo run test",
     "typecheck": "turbo run typecheck",
     "build": "turbo run build",
     "start": "turbo run start",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@biomejs/biome": "2.5.2",
     "turbo": "^2.10.3",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
   }
 }
