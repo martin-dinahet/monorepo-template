@@ -213,6 +213,9 @@ importers:
       '@biomejs/biome':
         specifier: 2.5.2
         version: 2.5.2
+      '@repo/config-biome':
+        specifier: workspace:*
+        version: link:packages/config/biome
       turbo:
         specifier: ^2.10.3
         version: 2.10.3
@@ -247,6 +250,8 @@ importers:
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
+
+  packages/config/biome: {}
 
   packages/config/typescript: {}
 

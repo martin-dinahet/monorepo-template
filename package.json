@@ -26,6 +26,7 @@
   "packageManager": "pnpm@11.10.0",
   "devDependencies": {
     "@biomejs/biome": "2.5.2",
+    "@repo/config-biome": "workspace:*",
     "turbo": "^2.10.3",
     "typescript": "^6.0.3",
     "vitest": "^4.1.10"

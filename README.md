@@ -25,7 +25,7 @@ configuration, environment validation, and Better Auth wired to the database.
 │   ├── auth/               # Auth package backed by Better Auth
 │   ├── db/                 # Prisma schema, migrations, generated client wrapper
 │   ├── environment/        # dotenv loading and Zod environment validation
-│   └── config/             # Shared repo configuration packages
+│   └── config/             # Shared TypeScript and Biome configuration packages
 ├── services/
 │   ├── backend/            # Hono API server
 │   └── frontend/           # React + Vite app

@@ -1,0 +1,7 @@
+{
+  "name": "@repo/config-biome",
+  "type": "module",
+  "exports": {
+    ".": "./config.json"
+  }
+}
