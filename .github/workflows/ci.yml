@@ -42,7 +42,7 @@ jobs:
         run: pnpm build
 
       - name: Lint
-        run: pnpm biome:line
+        run: pnpm biome:lint
 
       - name: Audit
         run: pnpm audit --audit-level moderate

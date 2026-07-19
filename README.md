@@ -140,7 +140,7 @@ Run these from the repository root.
 | `pnpm build` | Build packages and services through Turborepo. |
 | `pnpm typecheck` | Type-check the workspace. |
 | `pnpm start` | Start built services. |
-| `pnpm biome:line` | Run Biome linting. |
+| `pnpm biome:lint` | Run Biome linting. |
 | `pnpm biome:format` | Format files with Biome. |
 | `pnpm biome:check` | Run Biome checks and write safe fixes. |
 | `pnpm db:up` | Start local Postgres with Docker Compose. |
@@ -183,7 +183,7 @@ Before opening a PR or sharing changes, run:
 ```sh
 pnpm typecheck
 pnpm build
-pnpm biome:line
+pnpm biome:lint
 pnpm audit --audit-level moderate
 ```
 

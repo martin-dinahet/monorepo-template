@@ -14,7 +14,7 @@
     "typecheck": "turbo run typecheck",
     "build": "turbo run build",
     "start": "turbo run start",
-    "biome:line": "biome lint",
+    "biome:lint": "biome lint",
     "biome:format": "biome format --write",
     "biome:check": "biome check --write",
     "db:up": "docker compose up -d",
