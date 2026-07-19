@@ -2,6 +2,10 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "monorepo-template",
   "type": "module",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=11 <12"
+  },
   "scripts": {
     "clean": "turbo run clean && rm -rf .turbo .pnpm-store",
     "dev": "turbo run dev",

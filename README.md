@@ -53,6 +53,8 @@ configuration, environment validation, and Better Auth wired to the database.
 - pnpm 11
 - Docker, for the local Postgres database
 
+This repository includes `.node-version` and `.nvmrc` files for Node version managers.
+
 ## Getting Started
 
 Install dependencies:
