@@ -1,4 +1,4 @@
-import { auth } from "@packages/better-auth";
+import { auth } from "@packages/auth";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";

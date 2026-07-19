@@ -1,5 +1,5 @@
 {
-  "name": "@packages/better-auth",
+  "name": "@packages/auth",
   "type": "module",
   "scripts": {
     "clean": "rm -rf dist tsconfig.tsbuildinfo",

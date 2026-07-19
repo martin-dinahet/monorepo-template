@@ -22,7 +22,7 @@ configuration, environment validation, and Better Auth wired to the database.
 ```text
 .
 ├── packages/
-│   ├── better-auth/        # Better Auth server configuration
+│   ├── auth/               # Auth package backed by Better Auth
 │   ├── db/                 # Prisma schema, migrations, generated client wrapper
 │   ├── environment/        # dotenv loading and Zod environment validation
 │   └── config/             # Shared repo configuration packages
@@ -39,7 +39,7 @@ configuration, environment validation, and Better Auth wired to the database.
 
 ```text
 @services/backend
-  -> @packages/better-auth
+  -> @packages/auth
     -> @packages/db
       -> @packages/environment
 
@@ -161,7 +161,7 @@ Migrations live in `packages/db/prisma/migrations/`.
 
 ## Auth
 
-Better Auth is configured in `packages/better-auth/src/index.ts`.
+Auth is configured in `packages/auth/src/index.ts` using Better Auth.
 
 The backend mounts auth handlers under:
 

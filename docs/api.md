@@ -43,7 +43,7 @@ http://localhost:5173
 
 ## Auth
 
-Better Auth is configured in `packages/better-auth/src/index.ts` and uses the Prisma adapter from
+Auth is configured in `packages/auth/src/index.ts` using Better Auth and the Prisma adapter from
 `@packages/db`.
 
 Auth routes are mounted by the backend at:
