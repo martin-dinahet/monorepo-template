@@ -170,6 +170,10 @@ The backend mounts auth handlers under:
 The auth package reads its required settings from `@packages/environment`, so missing or invalid
 environment variables fail early during startup.
 
+## API Docs
+
+The current backend route map is documented in `docs/api.md`.
+
 ## Quality Checks
 
 Before opening a PR or sharing changes, run:
