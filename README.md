@@ -177,6 +177,9 @@ invalid environment variables fail early during startup. Browser-facing code sho
 
 The current backend route map is documented in `docs/api.md`.
 
+The architecture conventions for adding new services and packages are documented in
+`docs/architecture.md`.
+
 ## Quality Checks
 
 Before opening a PR or sharing changes, run:
