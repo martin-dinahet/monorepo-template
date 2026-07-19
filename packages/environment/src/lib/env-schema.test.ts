@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { envSchema } from "./env-schema.js";
+import { clientEnvSchema, envSchema, serverEnvSchema } from "./env-schema.js";
 
-describe("envSchema", () => {
+describe("serverEnvSchema", () => {
   it("validates required server environment variables", () => {
-    const env = envSchema.parse({
+    const env = serverEnvSchema.parse({
       DATABASE_URL: "postgres://user:password@localhost:5432/db",
       BETTER_AUTH_SECRET: "local-development-secret-change-before-production",
       BETTER_AUTH_URL: "http://localhost:3000",
@@ -17,11 +17,30 @@ describe("envSchema", () => {
   });
 
   it("defaults the auth URL for local development", () => {
-    const env = envSchema.parse({
+    const env = serverEnvSchema.parse({
       DATABASE_URL: "postgres://user:password@localhost:5432/db",
       BETTER_AUTH_SECRET: "local-development-secret-change-before-production",
     });
 
     expect(env.BETTER_AUTH_URL).toBe("http://localhost:3000");
+  });
+
+  it("keeps the legacy envSchema export pointed at server env", () => {
+    expect(envSchema).toBe(serverEnvSchema);
+  });
+});
+
+describe("clientEnvSchema", () => {
+  it("only accepts public Vite environment variables", () => {
+    const env = clientEnvSchema.parse({
+      VITE_API_URL: "http://localhost:3000",
+      BETTER_AUTH_SECRET: "must-not-be-read-by-client-schema",
+    });
+
+    expect(env).toEqual({ VITE_API_URL: "http://localhost:3000" });
+  });
+
+  it("defaults the API URL for local development", () => {
+    expect(clientEnvSchema.parse({}).VITE_API_URL).toBe("http://localhost:3000");
   });
 });

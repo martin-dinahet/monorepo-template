@@ -109,6 +109,7 @@ DATABASE_URL="postgres://user:password@localhost:5432/db"
 BETTER_AUTH_SECRET="replace-with-at-least-32-characters"
 BETTER_AUTH_URL="http://localhost:3000"
 BETTER_AUTH_TRUSTED_ORIGINS="http://localhost:5173"
+VITE_API_URL="http://localhost:3000"
 ```
 
 | Variable | Description |
@@ -117,6 +118,7 @@ BETTER_AUTH_TRUSTED_ORIGINS="http://localhost:5173"
 | `BETTER_AUTH_SECRET` | Secret used by Better Auth for signing/encryption. Use a strong value. |
 | `BETTER_AUTH_URL` | Public base URL for the auth server. |
 | `BETTER_AUTH_TRUSTED_ORIGINS` | Comma-separated list of frontend origins allowed by Better Auth. |
+| `VITE_API_URL` | Browser-safe API base URL for the frontend. |
 
 ## Scripts
 
