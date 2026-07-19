@@ -20,7 +20,7 @@
     "@better-auth/prisma-adapter": "^1.4.4"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
+    "@repo/config-typescript": "workspace:*",
     "@types/node": "^26.0.0",
     "typescript": "^6.0.3"
   }

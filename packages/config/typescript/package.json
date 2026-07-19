@@ -1,5 +1,5 @@
 {
-  "name": "@repo/typescript-config",
+  "name": "@repo/config-typescript",
   "type": "module",
   "exports": {
     "./base": "./configs/base.json",
