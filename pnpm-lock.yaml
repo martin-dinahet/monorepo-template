@@ -311,6 +311,9 @@ importers:
       '@packages/better-auth':
         specifier: workspace:*
         version: link:../../packages/better-auth
+      '@packages/db':
+        specifier: workspace:*
+        version: link:../../packages/db
       '@packages/environment':
         specifier: workspace:*
         version: link:../../packages/environment

@@ -11,6 +11,7 @@
   "dependencies": {
     "@hono/node-server": "^2.0.8",
     "@packages/better-auth": "workspace:*",
+    "@packages/db": "workspace:*",
     "@packages/environment": "workspace:*",
     "better-auth": "^1.6.23",
     "hono": "^4.12.27"
