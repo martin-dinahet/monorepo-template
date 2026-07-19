@@ -123,7 +123,7 @@ VITE_API_URL="http://localhost:3000"
 | `DATABASE_URL` | Postgres connection string used by Prisma. |
 | `BETTER_AUTH_SECRET` | Secret used by Better Auth for signing/encryption. Use a strong value. |
 | `BETTER_AUTH_URL` | Public base URL for the auth server. |
-| `BETTER_AUTH_TRUSTED_ORIGINS` | Comma-separated list of frontend origins allowed by Better Auth. |
+| `BETTER_AUTH_TRUSTED_ORIGINS` | Comma-separated list of frontend origins allowed by Better Auth and backend CORS. |
 | `VITE_API_URL` | Browser-safe API base URL for the frontend. |
 
 ## Scripts
